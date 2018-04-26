@@ -1,0 +1,29 @@
+<?php
+
+namespace app\models;
+
+use Yii;
+use yii\db\ActiveRecord;
+
+class FeedBackForm extends ActiveRecord
+{
+    public $content;
+    public $email;
+
+    public function rules()
+    {
+        return [
+            [['email', 'content'], 'required'],
+            ['email', 'email'],
+            ['content','string','min'=>10]
+        ];
+    }
+
+    public function attributeLabels(){
+ 		return [
+ 			'email' => 'Email',
+ 			'content' => 'Content'
+ 		];
+ 	}
+}
+
